@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "v-money": "^0.8.1",
+    "mosha-vue-toastify": "^1.0.17",
+    "v-money3": "^3.13.6",
     "vue": "^3.0.0"
   },
   "devDependencies": {

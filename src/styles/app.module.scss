@@ -159,6 +159,9 @@ main {
   align-items: center;
 
   .btnAdicionar {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     cursor:pointer;
     font-family:"Nunito";
     width:15rem;
@@ -171,6 +174,14 @@ main {
     font-weight:300;
     box-shadow: 0px 2px 0px $main-black;
     transition:0.2s filter linear;
+
+    .iconAdd {
+      background-color: $main-white;
+      width: 1.5rem;
+      height: 1.5rem;
+      mask: url("../assets/add.svg") no-repeat center;
+      margin-right: 0.2rem;
+    }
 
     &:hover {
       filter: brightness(1.1);
@@ -195,7 +206,7 @@ main {
     tr {
       margin-top:0.5rem;
       display:grid;
-      grid-template-columns: 4fr 1fr;
+      grid-template-columns: 8fr 2fr 1fr;
       background-color:$main-white;
       border-radius:0.5rem;
       line-height:2rem;
@@ -206,6 +217,32 @@ main {
         background-color:$bg-grey;
         color:$sec-light-grey;
         line-height:1rem;
+      }
+
+      .iconDelRow{
+        display:flex;
+        justify-content:flex-end;
+        align-items: center;
+      }
+
+      .iconDel {
+        cursor:pointer;
+        background-color: $sec-red;
+        width: 1.5rem;
+        height: 1.5rem;
+        mask: url("../assets/delete.svg") no-repeat center;
+        margin-right: 1rem;
+        &:hover {
+          filter:brightness(1.2);
+        }
+      }
+
+      .outcomeText {
+        color: $sec-red;
+      }
+
+      .incomeText {
+        color: $sec-green;
       }
     }
   }

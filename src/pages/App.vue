@@ -39,14 +39,17 @@
       <div class="iconAdd"></div>
       Adicionar novo
     </button>
-    <table>
+    <table v-if="transactions.length > 0">
       <tr>
         <th>Descrição</th>
         <th>Valor</th>
       </tr>
       <tr v-for="(transaction, index) in transactions" :key="index">
         <td>{{ transaction.desc }}</td>
-        <td>R$ {{ formatPrice(transaction.val) }}</td>
+        <td v-bind:class="[transaction.val < 0 ? 'outcomeText' : 'incomeText']">R$ {{ formatPrice(transaction.val) }}</td>
+        <td class="iconDelRow">
+          <div class="iconDel" @click="del(transaction.id)"></div>
+        </td>
       </tr>
     </table>
   </main>
@@ -92,7 +95,7 @@ export default {
       this.transactions.push({
         id: this.id++,
         desc: e.desc,
-        val: parseInt(e.val),
+        val: e.val,
       });
       this.calculate();
     },
@@ -100,6 +103,12 @@ export default {
       let val = (value / 1).toFixed(2).replace(".", ",");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
+    del: function (id) {
+      this.transactions = this.transactions.filter( t => {
+        if(t.id !== id) return t;
+      })
+      this.calculate();
+    }
   },
 };
 </script>
