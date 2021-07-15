@@ -1,0 +1,212 @@
+/* RESET */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Font import*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+/* Variables */
+$bg-grey: #eef1f0;
+$bg-purple: #5636d3;
+$main-white: #ffffff;
+$main-black: #363f5f;
+$sec-orange: #ff872c;
+$sec-red: #e83f5b;
+$sec-green: #12a454;
+$sec-light-grey: #969CB2;
+
+body {
+  font-family: "Nunito";
+  background-color: $bg-grey;
+}
+
+header {
+  padding-top: 2rem;
+  background-color: $bg-purple;
+  color: $main-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .headerContent {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 80rem;
+
+    h1 {
+      line-height: 3rem;
+      display: flex;
+      .mainIcon {
+        background-color: $sec-orange;
+        width: 3rem;
+        height: 3rem;
+        mask: url("../assets/icon.svg") no-repeat center;
+        margin-right: 1rem;
+      }
+    }
+
+    .totalLine {
+      margin-top:2rem;
+      position: relative;
+      top: 2rem;
+      display: flex;
+      align-self:center;
+      justify-content: space-between;
+      width:100%;
+      max-width:55rem;
+
+      .totalCard {
+        margin-right:1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5rem;
+        height: 7rem;
+        border-radius: 0.5rem;
+        width: 15rem;
+        background-color: $main-white;
+        color: $main-black;
+
+        &:last-of-type {
+          margin-right:0;
+        }
+
+        .totalCardHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items:center;
+          h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+          .iconTotal {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+
+        p {
+          font-size: 1.5rem;
+          font-weight: 800;
+        }
+
+        &:first-of-type {
+          .iconTotal {
+            background-color: $sec-green;
+            mask: url("../assets/in.svg") no-repeat center;
+          }
+        }
+        &:nth-of-type(2) {
+          .iconTotal {
+            background-color: $sec-red;
+            mask: url("../assets/out.svg") no-repeat center;
+          }
+        }
+
+        &:nth-of-type(3) {
+          background-color: $sec-orange;
+          color:$main-white;
+          .iconTotal {
+            background-color: $main-white;
+            mask: url("../assets/total.svg") no-repeat center;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 5rem;
+  background-color: $bg-grey;
+  color: $main-black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .btnAdicionar {
+    cursor:pointer;
+    font-family:"Nunito";
+    width:15rem;
+    height:3rem;
+    background-color: $bg-purple;
+    color:white;
+    border:none;
+    border-radius: 0.5rem;
+    font-size:1.2rem;
+    font-weight:300;
+    box-shadow: 0px 2px 0px $main-black;
+    transition:0.2s filter linear;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      box-shadow:0 1px $main-black;
+      transform: translateY(1px);
+    }
+  }
+
+  table {
+    padding:0 3rem;
+    width:100%;
+    max-width:80rem;
+
+    th {
+      text-align:left;
+      font-weight:600;
+    }
+
+    tr {
+      margin-top:0.5rem;
+      display:grid;
+      grid-template-columns: 4fr 1fr;
+      background-color:$main-white;
+      border-radius:0.5rem;
+      line-height:2rem;
+      font-size:1rem;
+      padding:0.5rem 2rem;
+
+      &:first-of-type {
+        background-color:$bg-grey;
+        color:$sec-light-grey;
+        line-height:1rem;
+      }
+    }
+  }
+}
